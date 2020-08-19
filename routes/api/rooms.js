@@ -2,14 +2,16 @@ const express = require("express");
 const router = express.Router();
 const keys = require("../../config/keys");
 
-// Load User model
+// Load Room model
 const Room = require("../../models/Room");
+
+
 
 
 
 // CREATE Room
 router.post("/create-room", (req, res) => {
-    RoomSchema.create(req.body, (error, data) => {
+    Room.create(req.body, (error, data) => {
         if (error) {
             return next(error)
         } else {
@@ -21,7 +23,7 @@ router.post("/create-room", (req, res) => {
 
 // READ Room
 router.route('/').get((req, res) => {
-    RoomSchema.find((error, data) => {
+    Room.find((error, data) => {
         if (error) {
             return next(error)
         } else {
@@ -32,7 +34,7 @@ router.route('/').get((req, res) => {
 
 // Get Single Room
 router.route('/edit-room/:id').get((req, res) => {
-    RoomSchema.findById(req.params.id, (error, data) => {
+    Room.findById(req.params.id, (error, data) => {
         if (error) {
             return next(error)
         } else {
@@ -44,7 +46,7 @@ router.route('/edit-room/:id').get((req, res) => {
 
 // Update Room
 router.route('/update-room/:id').put((req, res, next) => {
-    RoomSchema.findByIdAndUpdate(req.params.id, {
+    Room.findByIdAndUpdate(req.params.id, {
         $set: req.body
     }, (error, data) => {
         if (error) {
@@ -57,9 +59,9 @@ router.route('/update-room/:id').put((req, res, next) => {
     })
 })
 
-// Delete Student
+// Delete Room
 router.route('/delete-room/:id').delete((req, res, next) => {
-    RoomSchema.findByIdAndRemove(req.params.id, (error, data) => {
+    Room.findByIdAndRemove(req.params.id, (error, data) => {
         if (error) {
             return next(error);
         } else {

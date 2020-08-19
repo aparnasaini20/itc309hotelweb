@@ -6,8 +6,8 @@ const RoomSchema = new Schema({
     id: { type: String, require: true },
     name: { type: String, require: true },
     price: { type: Number, require: true },
-    type: { String }
+    type: String
 });
 
 
-module.exports = Room = mongoose.model('Room', RoomSchema);
+module.exports = Room = mongoose.model('rooms', RoomSchema);
