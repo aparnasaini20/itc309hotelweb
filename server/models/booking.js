@@ -8,6 +8,8 @@ const BookingSchema = new Schema({
     firstName: { type: String, require: true },
     lastName: { type: String, require: true },
     email: { type: String, require: true },
+    checkindate: { type: Date, require: true },
+    checkoutdate: { type: Date, require: true },
     room_no: { Number }
 });
 
